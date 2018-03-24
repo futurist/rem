@@ -12,7 +12,10 @@ var url = "http://rem-rest-api.herokuapp.com"
 var url = "http://localhost:8000"
 var url = ''
 var useCredentials = true
-collection.value = location.hash.slice(1)||'users'
+;(window.onhashchange=e=> {
+  collection.value = location.hash.slice(1)||'users'
+})()
+
 refresh.onclick = function() {
   var x = new XMLHttpRequest()
   x.open("GET", url + "/api/"+collection.value+"?limit=50", true)
