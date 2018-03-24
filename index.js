@@ -25,12 +25,12 @@ http.createServer(function route (req, res) {
 	// `/api/:collection/:id`
   try {
     if (args == null) {
-      if (pathname === '' || pathname in pages) {
+      // if (pathname === '' || pathname in pages) {
         res.writeHead(200)
-        res.end(pages[alias[pathname]||pathname])
+        res.end(pages[alias[pathname]||pathname]||'')
         return
-      }
-      else throw new HttpError(404, 'Not found')
+      // }
+      // else throw new HttpError(404, 'Not found')
     }
     var resStatus = req.headers['rem-response-status']
     if (resStatus) throw new HttpError(Number(resStatus), 'Rem-Response-Status')
