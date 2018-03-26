@@ -54,6 +54,7 @@ http.createServer(function route (req, res) {
       var payload = get(id, items)
       var output = payload instanceof Array ? {
         data: payload.slice(offset, offset + limit),
+        allData: q.allData ? payload : undefined,
         offset: offset,
         limit: limit,
         total: items.length
